@@ -1,6 +1,31 @@
+# name: GeoFort CI Practice
+
+# on:
+#   workflow_dispatch:
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v4
+
+#       - name: Say Hello
+#         run: echo "Hello from GitHub Actions"
+
+#       - name: Show Current Directory
+#         run: pwd
+
+
+
 name: GeoFort CI Practice
 
 on:
+  push:
+    branches:
+      - main
+
   workflow_dispatch:
 
 jobs:
@@ -16,3 +41,13 @@ jobs:
 
       - name: Show Current Directory
         run: pwd
+
+  system-info:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Operating System
+        run: uname -a
+
+      - name: Show Disk Space
+        run: df -h
